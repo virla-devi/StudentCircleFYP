@@ -1,0 +1,8 @@
+<h1>Welcome To The Student Circle</h1>
+
+<% if user_signed_in? %>
+<p>
+<%= current_user.firstName %>  <%= current_user.LastName %>
+
+</p>
+<% end%>
