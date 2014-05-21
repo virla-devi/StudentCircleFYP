@@ -1,0 +1,23 @@
+<section class="Home">
+
+	<h1 >Welcome To The Student Circle</h1></section>
+
+<% if user_signed_in? %>
+<p>
+<%= current_user.firstName %>  <%= current_user.LastName %>
+ <%= image_tag current_user.avatar.url %>
+</p>
+<p>
+	<b>LasT Seen:</b>
+<%= time_ago_in_words(current_user.last_sign_in_at) %> ago
+
+</p>
+ <% current_user.posts.each do |post| %>
+   <p><b><%= post.body %></b></p>
+<p>Posted <%= time_ago_in_words(post.created_at) %> ago</p>
+  <% end %>
+
+<%= render :partial => "posts/post_form" %>
+
+
+<% end%>
